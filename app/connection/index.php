@@ -3,7 +3,7 @@
     $host = 'localhost';
     $usuario = 'root';
     $senha = '';
-    $banco = 'buscativa';
+    $banco = 'buscaativa';
 
     $conexao = new msqli($host, $usuario, $senha, $banco);
 

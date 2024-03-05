@@ -1,8 +1,0 @@
-Options -Indexes
-
-SetEnvIf Referer tangaradaserra\.mt\.gov\.br localreferer
-<FilesMatch \.(php)$>
-Order deny,allow
-Deny from all
-Allow from env=localreferer
-</FilesMatch>
