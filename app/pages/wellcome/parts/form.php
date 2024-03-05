@@ -6,7 +6,7 @@
 
     <div class="card-body">
 
-        <form action="">
+        <form action="./pages/wellcome/actions/index.php">
 
             <div class="row mb-3">
                 <div class="col-md-8">
@@ -21,12 +21,13 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <a href="#" class="btn btn-success">
+                    <button class="btn btn-success">
                         <i class="fa fa-paper-plane"></i>
                         Cadastrar
-                    </a>
+                    </button>
                 </div>
             </div>
+
         </form>
 
     </div>

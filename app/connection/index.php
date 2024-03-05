@@ -1,9 +1,9 @@
 <?php
 
-    $host = '';
-    $usuario = '';
+    $host = 'localhost';
+    $usuario = 'root';
     $senha = '';
-    $banco = '';
+    $banco = 'buscativa';
 
     $conexao = new msqli($host, $usuario, $senha, $banco);
 
