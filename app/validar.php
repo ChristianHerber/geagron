@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = $_POST['password'];
 
         // Consulta SQL para verificar as credenciais do usuário
-        $query = "SELECT * FROM usuarios WHERE username = ? AND password = SHA1(?)";
+        $query = "SELECT * FROM users WHERE username = ? AND password = SHA1(?)";
         
         // Preparar a declaração
         $stmt = $conexao->prepare($query);
