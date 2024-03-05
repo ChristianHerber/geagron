@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^/]+)/$ $1.php
+RewriteRule ^([^/]+)/([^/]+)/$ /$1/$2.php
+RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
+RewriteRule ^(.*)$ $1.php
+
+# Bloqueia a listagem de diretórios.
+Options All -Indexes
+
+</IfModule>
