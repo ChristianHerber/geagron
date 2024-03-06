@@ -44,6 +44,10 @@
                             <i class="fa fa-map"></i>
                             Propriedades
                         </a>
+                        <a class="collapse-item" href="plots.php">
+                            <i class="fa fa-leaf"></i>
+                            Talhões
+                        </a>
                     </div>
                 </div>
             </li>
