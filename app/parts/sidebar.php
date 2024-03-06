@@ -48,6 +48,10 @@
                             <i class="fa fa-leaf"></i>
                             Talhões
                         </a>
+                        <a class="collapse-item" href="cultures.php">
+                            <i class="fa fa-lemon"></i>
+                            Culturas
+                        </a>
                     </div>
                 </div>
             </li>
