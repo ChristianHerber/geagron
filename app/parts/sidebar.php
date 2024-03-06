@@ -52,6 +52,10 @@
                             <i class="fa fa-lemon"></i>
                             Culturas
                         </a>
+                        <a class="collapse-item" href="varieties.php">
+                            <i class="fa fa-pagelines" aria-hidden="true"></i>
+                            Variedades
+                        </a>
                     </div>
                 </div>
             </li>
