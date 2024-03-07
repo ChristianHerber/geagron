@@ -1,12 +1,13 @@
 <?php
 
-    $host = '';
-    $usuario = '';
-    $senha = '';
-    $banco = '';
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db = "geagron";
 
-    $conexao = new mysqli($host, $usuario, $senha, $banco);
+$conexao = new mysqli($host,$user,$pass,$db);
 
-    if($conexao->conect_errorno) {
-        echo "Erro ao conectar $conexao->connect_error";
-    }
+// Check connection
+if ($conexao -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $conexao -> connect_error;
+}

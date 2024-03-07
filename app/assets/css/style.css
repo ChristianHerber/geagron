@@ -4,3 +4,23 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(62,208,156,.5);
+    border-color: rgba(62,208,156,.5)
+}
+
+.dataTables_filter {
+    width: 50%;
+    float: right;
+    padding: 5px;
+    margin-top: -5px;
+}
+
+.dataTables_filter label {
+    width: 100%;
+}
+
+.dataTables_filter input {
+    width: 99%!important;
+}
