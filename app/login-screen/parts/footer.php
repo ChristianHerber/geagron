@@ -1,3 +1,7 @@
+    <footer class="text-center">
+        <p class="text-muted">&copy; RuralLoop</p>
+    </footer>
+
 </div>
 
 <!-- Bootstrap core JavaScript-->
