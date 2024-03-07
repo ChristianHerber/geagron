@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = $_POST['password'];
 
         // Consulta SQL para verificar as credenciais do usuário
-        $query = "SELECT * FROM users WHERE username = ? AND password = SHA1(?)";
+        $query = "SELECT * FROM usuarios WHERE username = ? AND password = SHA1(?)";
         
         // Preparar a declaração
         $stmt = $conexao->prepare($query);
@@ -43,11 +43,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['password'] = $password;
             $_SESSION['nivel']    = $nivel;
             $_SESSION['fullname'] = $fullname;
-            header("Location: ./atendimento.php");
+            header("Location: /geagron/app/dashboard.php");
             exit; // Certifica-se de que o script seja interrompido após o redirecionamento
         } else {
             // Credenciais inválidas - exibir mensagem de erro
-            header("location:./login.php?msg=erro");
+            header("location:/geagron/app/login.php?erro=erro");
         }
 
         // Fechar a declaração e a conexão

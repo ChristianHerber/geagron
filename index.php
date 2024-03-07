@@ -1,1 +1,1 @@
-<?php header("location: app/wellcome.php");
+<?php header("location: app/dashboard.php");
