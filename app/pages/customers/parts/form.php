@@ -1,5 +1,14 @@
 <?php
 
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST['customerSelectedName']) || isset($_POST['customerSelectedId'])) {
+            $_SESSION['customer_name'] = $_POST['customerSelectedName'];
+            $_SESSION['customer_id'] = $_POST['customerSelectedId'];
+            echo "<script>window.location.href = 'customers.php';</script>";
+        }
+    }
+
+
     @$customerId = htmlspecialchars($_POST['customerId']);
 
     if(!empty($customerId )):

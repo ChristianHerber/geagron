@@ -45,10 +45,16 @@
                     <td>{$row['city']}</td>
                     <td>{$row['state']}</td>
                     <td>
-                        <a href='escolher_registro' class='btn btn-sm btn-success' id='btnSelect'>
-                            <i class='fa fa-check'></i>
-                        </a>
+                        
+                        <form action='{$_SERVER["PHP_SELF"]}' method='post'>
+                            <input type='hidden' name='customerSelectedName' value='{$row['name']}'>
+                            <input type='hidden' name='customerSelectedId' value='{$row['id']}'>
 
+                            <button class='btn btn-sm btn-success' id='btnSelect'>
+                                <i class='fa fa-check'></i>
+                            </button>
+                        </form>
+                        
                         <a href='escolher_registro' class='btn btn-sm btn-danger' id='btnDelete'>
                             <i class='fa fa-trash-alt'></i>
                         </a>
