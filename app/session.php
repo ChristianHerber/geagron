@@ -1,8 +1,19 @@
 <?php
 
-// if(isset($_SESSION)){
-    session_start();
-// }
+/**
+ * Previne roubo de sessão
+ */
+session_set_cookie_params(['httponly' => true]);
+
+/**
+ * Inicia a sessão
+ */
+session_start();
+
+/**
+ * Gera uma nova id de sessão a cada login
+ */
+session_regenerate_id();
 
 if (!isset($_SESSION["username"]) || !isset($_SESSION["password"])) {
     header("Location: ./login.php");

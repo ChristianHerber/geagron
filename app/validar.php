@@ -2,6 +2,8 @@
 
 include('connection/index.php');
 
+//Previne roubo de sessão
+session_set_cookie_params(['httponly' => true]);
 // Iniciar a sessão (se ainda não estiver iniciada)
 session_start();
 
