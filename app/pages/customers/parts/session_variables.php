@@ -10,6 +10,12 @@
         if (isset($_POST['customerSelectedName']) || isset($_POST['customerSelectedId'])) {
 
             /**
+             * Limpa a propriedade escolhida
+             */
+            $_SESSION['property_name'] = NULL;
+            $_SESSION['property_id'] = NULL;
+
+            /**
              * Variável de sessão que guarda o
              * valor com o nome do cliente selecionado
              */
