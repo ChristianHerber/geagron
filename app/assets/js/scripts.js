@@ -89,4 +89,11 @@ $(document).ready(function() {
         $("#alert-msg").fadeOut(700);
     });
 
+    $(document).on('click', '#btnCustomerDelete', function() {
+        let link = $(this).attr('link')
+        if (confirm(" Corfima a exclusão? ")) {
+            location.href = `${link}`;
+        }
+    })
+
 });
