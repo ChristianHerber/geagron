@@ -44,9 +44,13 @@ if($result->num_rows > 0):
                     <i class='fa fa-check'></i>
                 </a>
 
-                <a href='escolher_registro' class='btn btn-sm btn-danger ml-2' id='btnDelete'>
+                <button 
+                    class='btn btn-sm btn-danger ml-2'
+                    id='btnPropertyDelete'
+                    link='./pages/properties/actions/index.php?action=3&propertyId={$row['id']}'
+                >
                     <i class='fa fa-trash-alt'></i>
-                </a>
+                </button>
             </td>
         </tr>
     ";

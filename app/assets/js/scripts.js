@@ -96,4 +96,11 @@ $(document).ready(function() {
         }
     })
 
+    $(document).on('click', '#btnPropertyDelete', function() {
+        let link = $(this).attr('link')
+        if (confirm(" Corfima a exclusão? ")) {
+            location.href = `${link}`;
+        }
+    })
+
 });

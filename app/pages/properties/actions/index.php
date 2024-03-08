@@ -98,9 +98,6 @@
             WHERE id = {$propertyId}
         ";
 
-        echo "ACTION: {$action}";
-        echo "<pre>{$query}</pre>";
-
         $msg = 'msg=Propriedade Atualizada com Sucesso';
         $alertBg = 'alertBg=primary';
     endif;
@@ -110,13 +107,17 @@
      */
     if($action == 3):
         $query = "
-            UPDATE table_name
+            UPDATE properties
             SET
-                deleted_at = {$deleted_at}
-            WHERE id = {$id}
+                deleted_at = '$propertyDeletedAt'
+            WHERE id = {$propertyId}
         ";
 
-        $feedBack = 'feedBack=delete';
+        echo "ACTION: {$action}";
+        echo "<pre>{$query}</pre>";
+
+        $msg = 'msg=O Registro foi Excluído!';
+        $alertBg = 'alertBg=danger';
     endif;
 
 
@@ -124,7 +125,7 @@
         header("location: /geagron/app/properties.php?{$msg}&{$alertBg}");
         echo "<pre>{$query}</pre>";
     else:
-        header("location: /geagron/app/customers.php?msg=Erro ao realizar operação&alertBg=warning");
+        header("location: /geagron/app/properties.php?msg=Erro ao realizar operação&alertBg=warning");
     endif;
 
     $conexao->close();
