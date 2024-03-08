@@ -11,29 +11,81 @@
     /**
      * Recupera os dados
      */
+    $action                    = htmlspecialchars($_GET['action']);
+    $propertyId                = htmlspecialchars(!empty($_POST['propertyId']) ? $_POST['propertyId'] : $_GET['propertyId']);
+    $propertyCustomer          = htmlspecialchars($_POST['propertyCustomer']);
+    $propertyCreatedAt         = htmlspecialchars($_POST['propertyCreatedAt']);
+    $propertyName              = htmlspecialchars($_POST['propertyName']);
+    $propertyStateRegistration = htmlspecialchars($_POST['propertyStateRegistration']);
+    $propertyCEP               = htmlspecialchars($_POST['propertyCEP']);
+    $propertyAddress           = htmlspecialchars($_POST['propertyAddress']);
+    $propertyDistrict          = htmlspecialchars($_POST['propertyDistrict']);
+    $propertyCity              = htmlspecialchars($_POST['propertyCity']);
+    $propertyState             = htmlspecialchars($_POST['propertyState']);
+    $propertyCultivatedArea    = htmlspecialchars($_POST['propertyCultivatedArea']);
+    $propertyTotalArea         = htmlspecialchars($_POST['propertyTotalArea']);
 
-    $action = $_GET['action']; //Verifica a ação a ser realizada
+    $propertyUpdatedAt         = date('Y-m-d');
+    $propertyDeletedAt         = date('Y-m-d');
 
-    $id = $_GET['id']; //id do registro a ser atualizado ou excluído (soft delete)
+    $action                    = mysqli_real_escape_string($conexao, $action );
+    $propertyId                = mysqli_real_escape_string($conexao, $propertyId);
+    $propertyCustomer          = mysqli_real_escape_string($conexao, $propertyCustomer);
+    $propertyCreatedAt         = mysqli_real_escape_string($conexao, $propertyCreatedAt);
+    $propertyName              = mysqli_real_escape_string($conexao, $propertyName);
+    $propertyStateRegistration = mysqli_real_escape_string($conexao, $propertyStateRegistration);
+    $propertyCEP               = mysqli_real_escape_string($conexao, $propertyCEP);
+    $propertyAddress           = mysqli_real_escape_string($conexao, $propertyAddress);
+    $propertyDistrict          = mysqli_real_escape_string($conexao, $propertyDistrict);
+    $propertyCity              = mysqli_real_escape_string($conexao, $propertyCity);
+    $propertyState             = mysqli_real_escape_string($conexao, $propertyState);
+    $propertyCultivatedArea    = mysqli_real_escape_string($conexao, $propertyCultivatedArea);
+    $propertyTotalArea         = mysqli_real_escape_string($conexao, $propertyTotalArea);
 
-    $name = $_GET['name']; //exemplo de um registro
+    echo "PROPERTY ID: " . $propertyId . "<br>";
+    echo "ACTION: " . $action . "<br>";
 
     /**
      * Query de inserção dos dados no BD
      */
-    if($action === 1):
-        $query = "
-            INSERT INTO table_name
-            values ('{$name}')
-        ";
+    if($action == 1):
+        $query = "INSERT INTO properties (
+            created_at,
+            name,
+            state_registration,
+            cep,
+            address, 
+            district, 
+            city, 
+            state,
+            cultivated_area,
+            total_area,
+            customer_id
+        ) 
+        VALUES (
+            '$propertyCreatedAt', 
+            '$propertyName',
+            '$propertyStateRegistration',
+            '$propertyCep', 
+            '$propertyAddress', 
+            '$propertyDistrict', 
+            '$propertyCity', 
+            '$propertyState',
+            '$propertyCultivatedArea',
+            '$propertyTotalArea',
+            $propertyCustomer
+        )";
 
-        $feedBack = 'feedBack=insert';
+        echo "<pre>$query</pre>";
+
+        $msg = 'msg=Propriedade Adicionada com Sucesso';
+        $alertBg = 'alertBg=success';
     endif;
 
     /**
      * Query de atualização dos dados no BD
      */
-    if($action === 2):
+    if($action == 2):
         $query = "
             UPDATE table_name
             SET
@@ -47,7 +99,7 @@
     /**
      * Query de deleção (soft delete) dos dados no BD
      */
-    if($action === 3):
+    if($action == 3):
         $query = "
             UPDATE table_name
             SET
@@ -59,11 +111,10 @@
     endif;
 
 
-    if($conexao->query($query) === TRUE):
-        header("location: ./wellcome.php?{$feedBack}");
+    if($conexao->query($query) == TRUE):
+        header("location: /geagron/app/properties.php?{$msg}&{$alertBg}");
     else:
-        echo "Erro ao realizar a operação";
-            echo mysqli_error($conexao);
+        header("location: /geagron/app/customers.php?msg=Erro ao realizar operação&alertBg=warning");
     endif;
 
     $conexao->close();
