@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['password'] = $password;
             $_SESSION['nivel']    = $nivel;
             $_SESSION['fullname'] = $fullname;
+
             header("Location: /geagron/app/dashboard.php");
             exit; // Certifica-se de que o script seja interrompido após o redirecionamento
         } else {

@@ -1,35 +1,24 @@
-<div class="card shadow mb-4">
+<?php
 
-    <div class="card-header py-3 d-flex justify-content-between align-items-center">
-        <h6 class="m-0 font-weight-bold text-primary">Novo Cadastro</h6>
-    </div>
 
-    <div class="card-body">
+// Verifica se o formulário foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Verifica se o campo valor foi enviado
+    if (isset($_POST["valor"])) {
+        // Armazena o valor enviado na variável de sessão
+        $_SESSION["meu_valor"] = $_POST["valor"];
+    }
+}
+?>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <label for="valor">Digite um valor:</label><br>
+        <input type="text" id="valor" name="valor"><br>
+        <input type="submit" value="Enviar">
+    </form>
 
-        <form action="./pages/wellcome/actions/index.php">
-
-            <div class="row mb-3">
-                <div class="col-md-8">
-                    <label for="" class="form-label">Name</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Position</label>
-                    <input type="text" class="form-control">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <button class="btn btn-success">
-                        <i class="fa fa-paper-plane"></i>
-                        Cadastrar
-                    </button>
-                </div>
-            </div>
-
-        </form>
-
-    </div>
-
-</div>
+    <?php
+    // Exibe o valor armazenado na variável de sessão, se existir
+    if (isset($_SESSION["meu_valor"])) {
+        echo "O valor armazenado na variável de sessão é: " . $_SESSION["meu_valor"];
+    }
+    ?>
