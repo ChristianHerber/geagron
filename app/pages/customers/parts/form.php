@@ -22,6 +22,14 @@
 
             <input type="hidden" name="customerCreatedAt" value="<?php echo empty($customerId) ? date('Y-m-d') : $customerCreatedAt; ?>" readonly>
 
+            <?php
+                if(!empty($customerId)):
+                    echo "
+                        <input type='hidden' name='customerId' value='{$customerId}' readonly>
+                    ";
+                endif;
+            ?>
+
             <div class="row mb-3">
                 <div class="col-md-12">
                     <label for="customerName" class="form-label">Nome</label>                   

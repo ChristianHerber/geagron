@@ -12,7 +12,7 @@
      * Recupera os dados
      */
     $action                = htmlspecialchars($_GET['action']);
-    $cutomerId             = htmlspecialchars($_GET['cutomerId']);
+    $customerId            = htmlspecialchars($_POST['customerId']);
     $customerCreatedAt     = htmlspecialchars($_POST['customerCreatedAt']);
     $customerName          = htmlspecialchars($_POST['customerName']);
     $customerCpf           = htmlspecialchars($_POST['customerCpf']);
@@ -28,8 +28,10 @@
     $customerState         = htmlspecialchars($_POST['customerState']);
     $customerPs            = htmlspecialchars($_POST['customerPs']);
 
+    $customerUpdatedAt     = date('Y-m-d');
+
     $action                 = mysqli_real_escape_string($conexao, $action );
-    $cutomerId              = mysqli_real_escape_string($conexao, $cutomerId);
+    $customerId             = mysqli_real_escape_string($conexao, $customerId);
     $customerCreatedAt      = mysqli_real_escape_string($conexao, $customerCreatedAt);
     $customerName           = mysqli_real_escape_string($conexao, $customerName);
     $customerCpf            = mysqli_real_escape_string($conexao, $customerCpf);
@@ -94,11 +96,26 @@
      */
     if($action == 2):
         $query = "
-            UPDATE table_name
+            UPDATE customers
             SET
-                name = {$name}
-            WHERE id = {$id}
+                name = '$customerName',
+                cpf = '$customerCpf',
+                home_phone = '$customerHomePhone',
+                business_phone = '$customerBusinessPhone',
+                cell_phone = '$customerMobilePhone',
+                personal_email = '$customerPersonalEmail',
+                business_email = '$customerBusinessEmail',
+                cep = '$customerCep',
+                address = '$customerAddress',
+                district = '$customerDistrict',
+                city = '$customerCity',
+                state = '$customerState',
+                ps = '$customerPs',
+                updated_at = '$customerUpdatedAt'
+            WHERE id = {$customerId}
         ";
+
+        echo "<pre>{$query}</pre>";
 
         $msg = 'msg=Cadastro Atualizado com Sucesso';
         $alertBg = 'alertBg=primary';
@@ -124,6 +141,7 @@
         header("location: /geagron/app/customers.php?{$msg}&{$alertBg}");
     else:
         header("location: /geagron/app/customers.php?msg=Erro ao realizar operação&alertBg=warning");
+        echo "<pre>{$query}</pre>";
     endif;
 
     $conexao->close();
