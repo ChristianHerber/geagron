@@ -12,7 +12,7 @@
      * Recupera os dados
      */
     $action                = htmlspecialchars($_GET['action']);
-    $customerId            = htmlspecialchars($_POST['customerId']);
+    $customerId            = htmlspecialchars(!empty($_POST['customerId']) ? $_POST['customerId'] : $_GET['customerId']);
     $customerCreatedAt     = htmlspecialchars($_POST['customerCreatedAt']);
     $customerName          = htmlspecialchars($_POST['customerName']);
     $customerCpf           = htmlspecialchars($_POST['customerCpf']);
@@ -29,6 +29,7 @@
     $customerPs            = htmlspecialchars($_POST['customerPs']);
 
     $customerUpdatedAt     = date('Y-m-d');
+    $customerDeletedAt     = date('Y-m-d');
 
     $action                 = mysqli_real_escape_string($conexao, $action );
     $customerId             = mysqli_real_escape_string($conexao, $customerId);
@@ -126,13 +127,13 @@
      */
     if($action == 3):
         $query = "
-            UPDATE table_name
+            UPDATE customers
             SET
-                deleted_at = {$deleted_at}
-            WHERE id = {$id}
+                deleted_at = '$customerDeletedAt'
+            WHERE id = {$customerId}
         ";
 
-        $msg = 'msg=O Cadastro Excluído';
+        $msg = 'msg=O Cadastro foi Excluído';
         $alertBg = 'alertBg=danger';
     endif;
 
@@ -141,7 +142,6 @@
         header("location: /geagron/app/customers.php?{$msg}&{$alertBg}");
     else:
         header("location: /geagron/app/customers.php?msg=Erro ao realizar operação&alertBg=warning");
-        echo "<pre>{$query}</pre>";
     endif;
 
     $conexao->close();

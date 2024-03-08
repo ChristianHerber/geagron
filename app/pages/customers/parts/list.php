@@ -55,9 +55,13 @@
                             </button>
                         </form>
                         
-                        <a href='escolher_registro' class='btn btn-sm btn-danger' id='btnDelete'>
+                        <button 
+                            class='btn btn-sm btn-danger' 
+                            id='btnCustomerDelete'
+                            link='./pages/customers/actions/index.php?action=3&customerId={$row['id']}'
+                        >
                             <i class='fa fa-trash-alt'></i>
-                        </a>
+                        </button>
                     </td>
                 </tr>
             ";
