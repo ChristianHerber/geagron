@@ -9,28 +9,48 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
+                        <li class="nav-item dropdown no-arrow">
+                            <a href="customers.php#customersList" class="nav-link dropdown-toggle">
+                                
+                                <?php 
+                                    if(isset($_SESSION['customer_name'])){
+                                        echo "
+                                            <span class='mr-2 d-none d-lg-inline border-0 small alert m-0 alert-info py-2 px-4'>
+                                                <strong>Cliente:</strong> {$_SESSION['customer_name']}
+                                            </span>
+                                        ";
+                                    } else {
+                                        echo "
+                                            <span class='mr-2 d-none d-lg-inline border-0 small alert m-0 alert-danger py-2 px-4'>
+                                                <i class='fa fa-exclamation-triangle'></i>
+                                                Selecione um <strong>Cliente!</strong>
+                                            </span>
+                                        ";
+                                    }
+                                ?>
+                                
                             </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown no-arrow">
+                            <a href='properties.php#propertiesList' class="nav-link dropdown-toggle">
+                            <?php 
+                                    if(isset($_SESSION['property_name'])){
+                                        echo "
+                                            <span class='mr-2 d-none d-lg-inline border-0 small alert m-0 alert-info py-2 px-4'>
+                                                <strong>Cliente:</strong> {$_SESSION['property_name']}
+                                            </span>
+                                        ";
+                                    } else {
+                                        echo "
+                                            <span class='mr-2 d-none d-lg-inline border-0 small alert m-0 alert-danger py-2 px-4'>
+                                                <i class='fa fa-exclamation-triangle'></i>
+                                                Selecione uma <strong>Propriedade!</strong>
+                                            </span>
+                                        ";
+                                    }
+                                ?>
+                            </a>
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
@@ -39,7 +59,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    <?php echo $fullname; ?>
+                                </span>
                                 <img class="img-profile rounded-circle"
                                     src="assets/img/undraw_profile.svg">
                             </a>

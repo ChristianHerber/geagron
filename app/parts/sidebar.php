@@ -49,11 +49,11 @@
                             Talhões
                         </a>
                         <a class="collapse-item" href="cultures.php">
-                            <i class="fa fa-lemon"></i>
+                            <i class="fab fa-apple"></i>
                             Culturas
                         </a>
                         <a class="collapse-item" href="varieties.php">
-                            <i class="fa fa-pagelines" aria-hidden="true"></i>
+                            <i class="fab fa-pagelines" aria-hidden="true"></i>
                             Variedades
                         </a>
                     </div>
