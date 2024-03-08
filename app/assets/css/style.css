@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}  
 #dataTable_wrapper .top {
     padding: 5px 0;
     display: flex;
