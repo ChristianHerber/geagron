@@ -9,7 +9,7 @@
 
         echo "
             <div 
-                class='alert alert-$alertBg border-$alertBg alert-dismissible fade show'
+                class='alert alert-$alertBg border-$alertBg border-0 alert-dismissible shadow-sm fade show'
                 style='{$css}'
                 role='alert' 
                 id='alert-msg'

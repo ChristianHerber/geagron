@@ -28,8 +28,8 @@
     $customerState         = htmlspecialchars($_POST['customerState']);
     $customerPs            = htmlspecialchars($_POST['customerPs']);
 
-    $customerUpdatedAt     = date('Y-m-d');
-    $customerDeletedAt     = date('Y-m-d');
+    $customerUpdatedAt     = date('Y-m-d H:m:i');
+    $customerDeletedAt     = date('Y-m-d H:m:i');
 
     $action                 = mysqli_real_escape_string($conexao, $action );
     $customerId             = mysqli_real_escape_string($conexao, $customerId);

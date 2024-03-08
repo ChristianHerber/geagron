@@ -20,7 +20,7 @@
 
         <form action="./pages/properties/actions/index.php?<?php echo $actionLink; ?>" method="POST">
 
-            <input type="text" name="propertyCreatedAt" value="<?php echo empty($propertyId) ? date('Y-m-d') : $propertyCreatedAt; ?>" readonly>
+            <input type="text" name="propertyCreatedAt" value="<?php echo empty($propertyId) ? date('Y-m-d H:m:i') : $propertyCreatedAt; ?>" readonly>
             <input type="text" name="propertyCustomer" value="<?php echo $_SESSION['customer_id']; ?>" readonly>
 
             <?php

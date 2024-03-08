@@ -20,7 +20,7 @@
 
         <form action="./pages/customers/actions/index.php?<?php echo $actionLink; ?>" method="POST">
 
-            <input type="hidden" name="customerCreatedAt" value="<?php echo empty($customerId) ? date('Y-m-d') : $customerCreatedAt; ?>" readonly>
+            <input type="hidden" name="customerCreatedAt" value="<?php echo empty($customerId) ? date('Y-m-d H:m:i') : $customerCreatedAt; ?>" readonly>
 
             <?php
                 if(!empty($customerId)):

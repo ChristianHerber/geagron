@@ -13,6 +13,7 @@
 
     else:
 
+        require_once './pages/commons/messages.php';
         require_once './pages/properties/parts/form.php';
         require_once './pages/properties/parts/table.php';
 

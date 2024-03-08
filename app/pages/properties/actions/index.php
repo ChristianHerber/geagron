@@ -25,8 +25,8 @@
     $propertyCultivatedArea    = htmlspecialchars($_POST['propertyCultivatedArea']);
     $propertyTotalArea         = htmlspecialchars($_POST['propertyTotalArea']);
 
-    $propertyUpdatedAt         = date('Y-m-d');
-    $propertyDeletedAt         = date('Y-m-d');
+    $propertyUpdatedAt         = date('Y-m-d H:m:i');
+    $propertyDeletedAt         = date('Y-m-d H:m:i');
 
     $action                    = mysqli_real_escape_string($conexao, $action );
     $propertyId                = mysqli_real_escape_string($conexao, $propertyId);
@@ -42,9 +42,6 @@
     $propertyCultivatedArea    = mysqli_real_escape_string($conexao, $propertyCultivatedArea);
     $propertyTotalArea         = mysqli_real_escape_string($conexao, $propertyTotalArea);
 
-    echo "PROPERTY ID: " . $propertyId . "<br>";
-    echo "ACTION: " . $action . "<br>";
-
     /**
      * Query de inserção dos dados no BD
      */
@@ -54,29 +51,27 @@
             name,
             state_registration,
             cep,
-            address, 
-            district, 
-            city, 
+            address,
+            district,
+            city,
             state,
             cultivated_area,
             total_area,
             customer_id
         ) 
         VALUES (
-            '$propertyCreatedAt', 
+            '$propertyCreatedAt',
             '$propertyName',
             '$propertyStateRegistration',
-            '$propertyCep', 
-            '$propertyAddress', 
-            '$propertyDistrict', 
-            '$propertyCity', 
+            $propertyCEP,
+            '$propertyAddress',
+            '$propertyDistrict',
+            '$propertyCity',
             '$propertyState',
             '$propertyCultivatedArea',
             '$propertyTotalArea',
             $propertyCustomer
         )";
-
-        echo "<pre>$query</pre>";
 
         $msg = 'msg=Propriedade Adicionada com Sucesso';
         $alertBg = 'alertBg=success';
@@ -113,6 +108,7 @@
 
     if($conexao->query($query) == TRUE):
         header("location: /geagron/app/properties.php?{$msg}&{$alertBg}");
+        // echo "<pre>{$query}</pre>";
     else:
         header("location: /geagron/app/customers.php?msg=Erro ao realizar operação&alertBg=warning");
     endif;
