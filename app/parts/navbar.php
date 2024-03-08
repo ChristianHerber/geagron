@@ -38,7 +38,7 @@
                                     if(isset($_SESSION['property_name'])){
                                         echo "
                                             <span class='mr-2 d-none d-lg-inline border-0 small alert m-0 alert-info py-2 px-4'>
-                                                <strong>Cliente:</strong> {$_SESSION['property_name']}
+                                                <strong>Propriedade:</strong> {$_SESSION['property_name']}
                                             </span>
                                         ";
                                     } else {
