@@ -113,9 +113,6 @@
             WHERE id = {$propertyId}
         ";
 
-        echo "ACTION: {$action}";
-        echo "<pre>{$query}</pre>";
-
         $msg = 'msg=O Registro foi Excluído!';
         $alertBg = 'alertBg=danger';
     endif;

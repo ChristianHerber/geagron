@@ -3,7 +3,13 @@
 
 require_once 'connection/index.php';
 
-$propertiesList = "SELECT * FROM properties WHERE deleted_at is null";
+/**
+ * Lista as propriedade pertencentes
+ * ao cliente selecionado e que não
+ * tenham sido deletas (soft delet)
+ * marcadas com o deleted_at
+ */
+$propertiesList = "SELECT * FROM properties WHERE customer_id = {$_SESSION['customer_id']} and deleted_at is null";
 
 $result = $conexao->query($propertiesList);
 
@@ -40,9 +46,15 @@ if($result->num_rows > 0):
             <td>{$row['city']}</td>
             <td>{$row['state']}</td>
             <td class='d-flex'>
-                <a href='escolher_registro' class='btn btn-sm btn-success' id='btnSelect'>
-                    <i class='fa fa-check'></i>
-                </a>
+                
+                <form action='{$_SERVER["PHP_SELF"]}' method='post'>
+                    <input type='hidden' name='propertySelectedName' value='{$row['name']}'>
+                    <input type='hidden' name='propertySelectedId' value='{$row['id']}'>
+
+                    <button class='btn btn-sm btn-success' id='btnSelect'>
+                        <i class='fa fa-check'></i>
+                    </button>
+                </form>
 
                 <button 
                     class='btn btn-sm btn-danger ml-2'
