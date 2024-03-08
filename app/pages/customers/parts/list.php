@@ -44,7 +44,7 @@
                     <td>{$row['personal_email']}</td>
                     <td>{$row['city']}</td>
                     <td>{$row['state']}</td>
-                    <td>
+                    <td class='d-flex'>
                         
                         <form action='{$_SERVER["PHP_SELF"]}' method='post'>
                             <input type='hidden' name='customerSelectedName' value='{$row['name']}'>
@@ -56,7 +56,7 @@
                         </form>
                         
                         <button 
-                            class='btn btn-sm btn-danger' 
+                            class='btn btn-sm btn-danger ml-2' 
                             id='btnCustomerDelete'
                             link='./pages/customers/actions/index.php?action=3&customerId={$row['id']}'
                         >
