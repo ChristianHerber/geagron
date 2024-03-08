@@ -17,18 +17,18 @@ if($result->num_rows > 0):
             <td>
                 <form action='properties.php' method='POST'>
 
-                    <input type='text' name='propertyId' value='{$row['id']}'>
-                    <input type='text' name='propertyName' value='{$row['name']}'>
-                    <input type='text' name='propertyStateRegistration' value='{$row['state_registration']}'>
-                    <input type='text' name='propertyCep' value='{$row['cep']}'>
-                    <input type='text' name='propertyAddress' value='{$row['address']}'>
-                    <input type='text' name='propertyDistrict' value='{$row['district']}'>
-                    <input type='text' name='propertyCity' value='{$row['city']}'>
-                    <input type='text' name='propertyState' value='{$row['state']}'>
-                    <input type='text' name='propertyCultivatedArea' value='{$row['cultivated_area']}'>
-                    <input type='text' name='propertyTotalArea' value='{$row['total_area']}'>
-                    <input type='text' name='propertyCreatedAt' value='{$row['created_at']}'>
-                    <input type='text' name='propertyUpdatedAt' value='{$date}'>
+                    <input type='hidden' name='propertyId' value='{$row['id']}'>
+                    <input type='hidden' name='propertyName' value='{$row['name']}'>
+                    <input type='hidden' name='propertyStateRegistration' value='{$row['state_registration']}'>
+                    <input type='hidden' name='propertyCep' value='{$row['cep']}'>
+                    <input type='hidden' name='propertyAddress' value='{$row['address']}'>
+                    <input type='hidden' name='propertyDistrict' value='{$row['district']}'>
+                    <input type='hidden' name='propertyCity' value='{$row['city']}'>
+                    <input type='hidden' name='propertyState' value='{$row['state']}'>
+                    <input type='hidden' name='propertyCultivatedArea' value='{$row['cultivated_area']}'>
+                    <input type='hidden' name='propertyTotalArea' value='{$row['total_area']}'>
+                    <input type='hidden' name='propertyCreatedAt' value='{$row['created_at']}'>
+                    <input type='hidden' name='propertyUpdatedAt' value='{$date}'>
 
                     <button class='btn btn-link'>
                         {$row['name']}
@@ -39,12 +39,12 @@ if($result->num_rows > 0):
             <td>{$row['state_registration']}</td>
             <td>{$row['city']}</td>
             <td>{$row['state']}</td>
-            <td>
+            <td class='d-flex'>
                 <a href='escolher_registro' class='btn btn-sm btn-success' id='btnSelect'>
                     <i class='fa fa-check'></i>
                 </a>
 
-                <a href='escolher_registro' class='btn btn-sm btn-danger' id='btnDelete'>
+                <a href='escolher_registro' class='btn btn-sm btn-danger ml-2' id='btnDelete'>
                     <i class='fa fa-trash-alt'></i>
                 </a>
             </td>

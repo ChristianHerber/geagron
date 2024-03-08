@@ -20,8 +20,8 @@
 
         <form action="./pages/properties/actions/index.php?<?php echo $actionLink; ?>" method="POST">
 
-            <input type="text" name="propertyCreatedAt" value="<?php echo empty($propertyId) ? date('Y-m-d H:m:i') : $propertyCreatedAt; ?>" readonly>
-            <input type="text" name="propertyCustomer" value="<?php echo $_SESSION['customer_id']; ?>" readonly>
+            <input type="hidden" name="propertyCreatedAt" value="<?php echo empty($propertyId) ? date('Y-m-d H:m:i') : $propertyCreatedAt; ?>" readonly>
+            <input type="hidden" name="propertyCustomer" value="<?php echo $_SESSION['customer_id']; ?>" readonly>
 
             <?php
                 if(!empty($propertyId)):
@@ -45,7 +45,7 @@
             <div class="row mb-3">
                 <div class="col-md-3">
                     <label for="propertyCEP" class="form-label">CEP</label>
-                    <input type="text" name="propertyCEP" value="<?php echo @$propertyCEP; ?>" id="propertyCEP" class="form-control cep">
+                    <input type="text" name="propertyCEP" value="<?php echo @$propertyCep; ?>" id="propertyCEP" class="form-control cep">
                 </div>
                 <div class="col-md-9">
                     <label for="propertyAddress" class="form-label">Endereço</label>
@@ -73,7 +73,7 @@
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label for="propertyCultivatedArea" class="form-label">Área Cultivada</label>
-                    <input type="number" name="propertyCultivatedArea" id="propertyCultivatedArea" class="form-control">
+                    <input type="number" name="propertyCultivatedArea" value="<?php echo @$propertyCultivatedArea; ?>" id="propertyCultivatedArea" class="form-control">
                 </div>
                 <div class="col-md-6">
                     <label for="propertyTotalArea" class="form-label">Área Total</label>

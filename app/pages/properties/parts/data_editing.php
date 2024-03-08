@@ -17,7 +17,7 @@
         $propertyCreatedAt         = htmlspecialchars($_POST['propertyCreatedAt']);
         $propertyName              = htmlspecialchars($_POST['propertyName']);
         $propertyStateRegistration = htmlspecialchars($_POST['propertyStateRegistration']);
-        $propertyCEP               = htmlspecialchars($_POST['propertyCEP']);
+        $propertyCep               = htmlspecialchars($_POST['propertyCep']);
         $propertyAddress           = htmlspecialchars($_POST['propertyAddress']);
         $propertyDistrict          = htmlspecialchars($_POST['propertyDistrict']);
         $propertyCity              = htmlspecialchars($_POST['propertyCity']);

@@ -63,7 +63,7 @@
             '$propertyCreatedAt',
             '$propertyName',
             '$propertyStateRegistration',
-            $propertyCEP,
+            '$propertyCEP',
             '$propertyAddress',
             '$propertyDistrict',
             '$propertyCity',
@@ -82,13 +82,27 @@
      */
     if($action == 2):
         $query = "
-            UPDATE table_name
+            UPDATE properties
             SET
-                name = {$name}
-            WHERE id = {$id}
+                name = '$propertyName',
+                state_registration = '$propertyStateRegistration',
+                cep = '$propertyCEP',
+                address = '$propertyAddress',
+                district = '$propertyDistrict',
+                city = '$propertyCity',
+                state = '$propertyState',
+                cultivated_area = '$propertyCultivatedArea',
+                total_area = '$propertyTotalArea',
+                customer_id = $propertyCustomer,
+                updated_at = '$propertyUpdatedAt'
+            WHERE id = {$propertyId}
         ";
 
-        $feedBack = 'feedBack=update';
+        echo "ACTION: {$action}";
+        echo "<pre>{$query}</pre>";
+
+        $msg = 'msg=Propriedade Atualizada com Sucesso';
+        $alertBg = 'alertBg=primary';
     endif;
 
     /**
@@ -108,7 +122,7 @@
 
     if($conexao->query($query) == TRUE):
         header("location: /geagron/app/properties.php?{$msg}&{$alertBg}");
-        // echo "<pre>{$query}</pre>";
+        echo "<pre>{$query}</pre>";
     else:
         header("location: /geagron/app/customers.php?msg=Erro ao realizar operação&alertBg=warning");
     endif;
