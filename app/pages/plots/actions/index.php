@@ -19,6 +19,10 @@
     $plotCultivatedArea = htmlspecialchars($_POST['plotCultivatedArea']);
     $plotTotalArea      = htmlspecialchars($_POST['plotTotalArea']);
 
+    $plotUpdatedAt     = date('Y-m-d H:m:i');
+    $plotDeletedAt     = date('Y-m-d H:m:i');
+
+
     $action             = mysqli_real_escape_string($conexao, $action );
     $plotId             = mysqli_real_escape_string($conexao, $plotId );
     $plotCreatedAt      = mysqli_real_escape_string($conexao, $plotCreatedAt);
@@ -54,13 +58,18 @@
      */
     if($action == 2):
         $query = "
-            UPDATE table_name
+            UPDATE plots
             SET
-                name = {$name}
-            WHERE id = {$id}
+                name = '{$plotName}',
+                cultivated_area = '{$plotCultivatedArea}',
+                total_area = '{$plotTotalArea}',
+                updated_at = '{$plotUpdatedAt}'
+            WHERE
+                id = {$plotId}
         ";
 
-        $feedBack = 'feedBack=update';
+        $msg = 'msg=Talhão Atualizado com Sucesso';
+        $alertBg = 'alertBg=primary';
     endif;
 
     /**
