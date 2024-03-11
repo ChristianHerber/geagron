@@ -14,6 +14,7 @@
 
     $action             = htmlspecialchars($_GET['action']);
     $plotId             = htmlspecialchars(!empty($_POST['plotId']) ? $_POST['plotId'] : $_GET['plotId']);
+    $plotProperty       = htmlspecialchars($_POST['plotProperty']);
     $plotCreatedAt      = htmlspecialchars($_POST['plotCreatedAt']);
     $plotName           = htmlspecialchars($_POST['plotName']);
     $plotCultivatedArea = htmlspecialchars($_POST['plotCultivatedArea']);
@@ -23,8 +24,9 @@
     $plotDeletedAt     = date('Y-m-d H:m:i');
 
 
-    $action             = mysqli_real_escape_string($conexao, $action );
-    $plotId             = mysqli_real_escape_string($conexao, $plotId );
+    $action             = mysqli_real_escape_string($conexao, $action);
+    $plotId             = mysqli_real_escape_string($conexao, $plotId);
+    $plotProperty       = mysqli_real_escape_string($conexao, $plotProperty);
     $plotCreatedAt      = mysqli_real_escape_string($conexao, $plotCreatedAt);
     $plotName           = mysqli_real_escape_string($conexao, $plotName);
     $plotCultivatedArea = mysqli_real_escape_string($conexao, $plotCultivatedArea);
@@ -39,13 +41,15 @@
                 created_at,
                 name,
                 cultivated_area,
-                total_area
+                total_area,
+                property_id
             )
             values (
                 '{$plotCreatedAt}',
                 '{$plotName}',
                 '{$plotCultivatedArea}',
-                '{$plotTotalArea}'
+                '{$plotTotalArea}',
+                '{$plotProperty}'
             )
         ";
 

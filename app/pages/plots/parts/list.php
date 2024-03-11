@@ -2,7 +2,7 @@
 
 require_once 'connection/index.php';
 
-$plotList = "SELECT * FROM plots WHERE deleted_at is null";
+$plotList = "SELECT * FROM plots WHERE property_id = {$_SESSION['property_id']} and deleted_at is null";
 
 $result = $conexao->query($plotList);
 

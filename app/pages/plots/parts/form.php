@@ -16,7 +16,7 @@
         <form action="./pages/plots/actions/index.php?<?php echo $actionLink; ?>" method="post">
 
             <input type="hidden" name="plotCreatedAt" value="<?php echo empty($plotId) ? date('Y-m-d H:m:i') : $plotCreatedAt; ?>" readonly>
-
+            <input type="hidden" name="plotProperty" value="<?php echo $_SESSION['property_id']; ?>" readonly>
 
             <?php
                 if(!empty($plotId)):
