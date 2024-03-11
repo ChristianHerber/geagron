@@ -77,13 +77,14 @@
      */
     if($action == 3):
         $query = "
-            UPDATE table_name
+            UPDATE plots
             SET
-                deleted_at = {$deleted_at}
-            WHERE id = {$id}
+                deleted_at = '{$plotDeletedAt}'
+            WHERE id = {$plotId}
         ";
 
-        $feedBack = 'feedBack=delete';
+        $msg = 'msg=O Registro Foi Excluído!';
+        $alertBg = 'alertBg=danger';
     endif;
 
 

@@ -103,4 +103,11 @@ $(document).ready(function() {
         }
     })
 
+    $(document).on('click', '#btnPlotDelete', function() {
+        let link = $(this).attr('link')
+        if (confirm(" Corfima a exclusão? ")) {
+            location.href = `${link}`;
+        }
+    })
+
 });

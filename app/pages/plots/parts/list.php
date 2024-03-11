@@ -32,9 +32,15 @@ if($result->num_rows > 0):
             <td>{$row['cultivated_area']}</td>
             <td>{$row['total_area']}</td>
             <td>
-                <a href='escolher_registro' class='btn btn-sm btn-danger' id='btnDelete'>
-                    <i class='fa fa-trash-alt'></i>
-                </a>
+                
+            <button 
+                class='btn btn-sm btn-danger ml-2' 
+                id='btnPlotDelete'
+                link='./pages/plots/actions/index.php?action=3&plotId={$row['id']}'
+            >
+                <i class='fa fa-trash-alt'></i>
+            </button>
+
             </td>
         </tr>
     ";
