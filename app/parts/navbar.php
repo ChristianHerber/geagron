@@ -6,44 +6,84 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
+                    <div class="infoSelecteds">
+                        <a href="customers.php#customersList" class="nav-link">
+                            
+                            <?php 
+                                if(isset($_SESSION['customer_name'])){
+                                    echo "
+                                        <span class='mr-1 d-lg-inline border-0 small alert m-0 alert-info py-2 px-4'>
+                                            <strong class='d-none d-lg-inline'>Cliente:</strong> {$_SESSION['customer_name']}
+                                        </span>
+                                    ";
+                                } else {
+                                    echo "
+                                        <span class='mr-2 d-lg-inline border-0 small alert m-0 alert-danger py-2 px-4'>
+                                            <i class='fa fa-exclamation-triangle'></i>
+                                            <span class='d-none d-lg-inline'>Selecione um</span> <strong>Cliente!</strong>
+                                        </span>
+                                    ";
+                                }
+                            ?>
+                        </a>
+
+                        <a href='properties.php#propertiesList' class="nav-link">
+                            <?php 
+                                if(isset($_SESSION['property_name'])){
+                                    echo "
+                                        <span class='mr-2 d-lg-inline border-0 small alert m-0 alert-info py-2 px-4'>
+                                            <strong class='d-none d-lg-inline'>Propriedade:</strong> {$_SESSION['property_name']}
+                                        </span>
+                                    ";
+                                } else {
+                                    echo "
+                                        <span class='mr-2 d-lg-inline border-0 small alert m-0 alert-danger py-2 px-4'>
+                                            <i class='fa fa-exclamation-triangle'></i>
+                                            <span class='d-none d-lg-inline'>Selecione uma</span> <strong>Propriedade!</strong>
+                                        </span>
+                                    ";
+                                }
+                            ?>
+                        </a>
+                    </div>
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <li class="nav-item dropdown no-arrow">
+                        <!-- <li class="nav-item dropdown no-arrow">
                             <a href="customers.php#customersList" class="nav-link dropdown-toggle">
                                 
                                 <?php 
                                     if(isset($_SESSION['customer_name'])){
                                         echo "
-                                            <span class='mr-2 d-none d-lg-inline border-0 small alert m-0 alert-info py-2 px-4'>
-                                                <strong>Cliente:</strong> {$_SESSION['customer_name']}
+                                            <span class='mr-2 d-lg-inline border-0 small alert m-0 alert-info py-2 px-4'>
+                                                <strong class='d-none d-lg-inline'>Cliente:</strong> {$_SESSION['customer_name']}
                                             </span>
                                         ";
                                     } else {
                                         echo "
-                                            <span class='mr-2 d-none d-lg-inline border-0 small alert m-0 alert-danger py-2 px-4'>
+                                            <span class='mr-2 d-lg-inline border-0 small alert m-0 alert-danger py-2 px-4'>
                                                 <i class='fa fa-exclamation-triangle'></i>
                                                 Selecione um <strong>Cliente!</strong>
                                             </span>
                                         ";
                                     }
                                 ?>
-                                
                             </a>
                         </li>
 
                         <li class="nav-item dropdown no-arrow">
                             <a href='properties.php#propertiesList' class="nav-link dropdown-toggle">
-                            <?php 
+                                <?php 
                                     if(isset($_SESSION['property_name'])){
                                         echo "
-                                            <span class='mr-2 d-none d-lg-inline border-0 small alert m-0 alert-info py-2 px-4'>
-                                                <strong>Propriedade:</strong> {$_SESSION['property_name']}
+                                            <span class='mr-2 d-lg-inline border-0 small alert m-0 alert-info py-2 px-4'>
+                                                <strong class='d-none d-lg-inline'>Propriedade:</strong> {$_SESSION['property_name']}
                                             </span>
                                         ";
                                     } else {
                                         echo "
-                                            <span class='mr-2 d-none d-lg-inline border-0 small alert m-0 alert-danger py-2 px-4'>
+                                            <span class='mr-2 d-lg-inline border-0 small alert m-0 alert-danger py-2 px-4'>
                                                 <i class='fa fa-exclamation-triangle'></i>
                                                 Selecione uma <strong>Propriedade!</strong>
                                             </span>
@@ -51,7 +91,7 @@
                                     }
                                 ?>
                             </a>
-                        </li>
+                        </li> -->
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 

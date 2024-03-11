@@ -27,3 +27,19 @@ html {
 .dataTables_filter input {
     width: 99%!important;
 }
+
+.infoSelecteds {
+    display: flex;
+    justify-content: start;
+}
+
+@media (max-width: 660px) {
+    .infoSelecteds {
+        flex-wrap: wrap;
+    }
+    .infoSelecteds .alert {
+        margin: 0;
+        padding: 2px 6px!important;
+        margin: 0!important;
+    }
+}
