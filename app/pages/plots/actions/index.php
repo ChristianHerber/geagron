@@ -90,8 +90,6 @@
 
     if($conexao->query($query) === TRUE):
         header("location: /geagron/app/plots.php?{$msg}&{$alertBg}");
-    else:
-
     endif;
 
     $conexao->close();
