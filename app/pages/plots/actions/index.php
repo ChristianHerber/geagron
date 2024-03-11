@@ -12,28 +12,47 @@
      * Recupera os dados
      */
 
-    $action = $_GET['action']; //Verifica a ação a ser realizada
+    $action             = htmlspecialchars($_GET['action']);
+    $plotId             = htmlspecialchars(!empty($_POST['plotId']) ? $_POST['plotId'] : $_GET['plotId']);
+    $plotCreatedAt      = htmlspecialchars($_POST['plotCreatedAt']);
+    $plotName           = htmlspecialchars($_POST['plotName']);
+    $plotCultivatedArea = htmlspecialchars($_POST['plotCultivatedArea']);
+    $plotTotalArea      = htmlspecialchars($_POST['plotTotalArea']);
 
-    $id = $_GET['id']; //id do registro a ser atualizado ou excluído (soft delete)
-
-    $name = $_GET['name']; //exemplo de um registro
+    $action             = mysqli_real_escape_string($conexao, $action );
+    $plotId             = mysqli_real_escape_string($conexao, $plotId );
+    $plotCreatedAt      = mysqli_real_escape_string($conexao, $plotCreatedAt);
+    $plotName           = mysqli_real_escape_string($conexao, $plotName);
+    $plotCultivatedArea = mysqli_real_escape_string($conexao, $plotCultivatedArea);
+    $plotTotalArea      = mysqli_real_escape_string($conexao, $plotTotalArea);
 
     /**
      * Query de inserção dos dados no BD
      */
-    if($action === 1):
+    if($action == 1):
         $query = "
-            INSERT INTO table_name
-            values ('{$name}')
+            INSERT INTO plots (
+                created_at,
+                name,
+                cultivated_area,
+                total_area
+            )
+            values (
+                '{$plotCreatedAt}',
+                '{$plotName}',
+                '{$plotCultivatedArea}',
+                '{$plotTotalArea}'
+            )
         ";
 
-        $feedBack = 'feedBack=insert';
+        $msg = 'msg=Talhão Adicionado com Sucesso';
+        $alertBg = 'alertBg=success';
     endif;
 
     /**
      * Query de atualização dos dados no BD
      */
-    if($action === 2):
+    if($action == 2):
         $query = "
             UPDATE table_name
             SET
@@ -47,7 +66,7 @@
     /**
      * Query de deleção (soft delete) dos dados no BD
      */
-    if($action === 3):
+    if($action == 3):
         $query = "
             UPDATE table_name
             SET
@@ -60,10 +79,9 @@
 
 
     if($conexao->query($query) === TRUE):
-        header("location: ./wellcome.php?{$feedBack}");
+        header("location: /geagron/app/plots.php?{$msg}&{$alertBg}");
     else:
-        echo "Erro ao realizar a operação";
-            echo mysqli_error($conexao);
+
     endif;
 
     $conexao->close();
