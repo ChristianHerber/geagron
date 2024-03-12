@@ -11,59 +11,83 @@
     /**
      * Recupera os dados
      */
+    $action                = htmlspecialchars($_GET['action']);
+    $cultureId             = htmlspecialchars(!empty($_POST['cultureId']) ? $_POST['cultureId'] : $_GET['cultureId']);
+    $cultureCreatedAt      = htmlspecialchars($_POST['cultureCreatedAt']);
+    $cultureName           = htmlspecialchars($_POST['cultureName']);
+    $cultureScientificName = htmlspecialchars($_POST['cultureScientificName']);
+    $cultureGroup          = htmlspecialchars($_POST['cultureGroup']);
 
-    $action = $_GET['action']; //Verifica a ação a ser realizada
+    $cultureUpdatedAt      = date('Y-m-d H:m:i');
+    $cultureDeletedAt      = date('Y-m-d H:m:i');
 
-    $id = $_GET['id']; //id do registro a ser atualizado ou excluído (soft delete)
+    $action                = mysqli_real_escape_string($conexao, $action);
+    $cultureId             = mysqli_real_escape_string($conexao, $cultureId);
+    $cultureCreatedAt      = mysqli_real_escape_string($conexao, $cultureCreatedAt);
+    $cultureName           = mysqli_real_escape_string($conexao, $cultureName);
+    $cultureScientificName = mysqli_real_escape_string($conexao, $cultureScientificName);
+    $cultureGroup          = mysqli_real_escape_string($conexao, $cultureGroup);
 
-    $name = $_GET['name']; //exemplo de um registro
 
     /**
      * Query de inserção dos dados no BD
      */
-    if($action === 1):
+    if($action == 1):
         $query = "
-            INSERT INTO table_name
-            values ('{$name}')
+            INSERT INTO cultures (
+                created_at,
+                name,
+                scientific_name,
+                `group`
+            )
+            values (
+                '{$cultureCreatedAt}',
+                '{$cultureName}',
+                '{$cultureScientificName}',
+                '{$cultureGroup}'
+            )
         ";
 
-        $feedBack = 'feedBack=insert';
+        $msg = 'msg=Cultura Adicionada com Sucesso';
+        $alertBg = 'alertBg=success';
     endif;
 
     /**
      * Query de atualização dos dados no BD
      */
-    if($action === 2):
+    if($action == 2):
         $query = "
-            UPDATE table_name
+            UPDATE cultures
             SET
-                name = {$name}
-            WHERE id = {$id}
+                created_at = '{$cultureCreatedAt}', 
+                name = '{$cultureName}',
+                scientific_name = '{$cultureScientificName}',
+                `group` = '{$cultureGroup}',
+            WHERE id = {$cultureId}
         ";
 
-        $feedBack = 'feedBack=update';
+        $msg = 'msg=Cultura Atualizada com Sucesso';
+        $alertBg = 'alertBg=primary';
     endif;
 
     /**
      * Query de deleção (soft delete) dos dados no BD
      */
-    if($action === 3):
+    if($action == 3):
         $query = "
-            UPDATE table_name
+            UPDATE cultures
             SET
-                deleted_at = {$deleted_at}
-            WHERE id = {$id}
+                deleted_at = {$cultureDeletedAt}
+            WHERE id = {$cultureId}
         ";
 
-        $feedBack = 'feedBack=delete';
+        $msg = 'msg=O Registro Foi Excluído!';
+        $alertBg = 'alertBg=danger';
     endif;
 
 
     if($conexao->query($query) === TRUE):
-        header("location: ./wellcome.php?{$feedBack}");
-    else:
-        echo "Erro ao realizar a operação";
-            echo mysqli_error($conexao);
+        header("location: /geagron/app/cultures.php?{$msg}&{$alertBg}");
     endif;
 
     $conexao->close();

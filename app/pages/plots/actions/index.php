@@ -23,7 +23,6 @@
     $plotUpdatedAt     = date('Y-m-d H:m:i');
     $plotDeletedAt     = date('Y-m-d H:m:i');
 
-
     $action             = mysqli_real_escape_string($conexao, $action);
     $plotId             = mysqli_real_escape_string($conexao, $plotId);
     $plotProperty       = mysqli_real_escape_string($conexao, $plotProperty);
