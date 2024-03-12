@@ -66,7 +66,7 @@
         ";
 
         $msg = 'msg=Variedade Atualizada com Sucesso';
-        $alertBg = 'alertBg=primary';
+        $alertBg = 'alertBg=danger';
     endif;
 
 

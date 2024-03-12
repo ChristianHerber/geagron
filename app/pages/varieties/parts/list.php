@@ -31,9 +31,13 @@ if($result->num_rows > 0):
             </td>
             <td>{$row['CultureName']}</td>
             <td>
-                <a href='escolher_registro' class='btn btn-sm btn-danger' id='btnDelete'>
+                <button 
+                    class='btn btn-sm btn-danger ml-2' 
+                    id='btnPlotDelete'
+                    link='./pages/varieties/actions/index.php?action=3&varietyId={$row['id']}'
+                >
                     <i class='fa fa-trash-alt'></i>
-                </a>
+                </button>
             </td>
         </tr>
     ";
