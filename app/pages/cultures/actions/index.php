@@ -77,7 +77,7 @@
         $query = "
             UPDATE cultures
             SET
-                deleted_at = {$cultureDeletedAt}
+                deleted_at = '{$cultureDeletedAt}'
             WHERE id = {$cultureId}
         ";
 

@@ -110,4 +110,11 @@ $(document).ready(function() {
         }
     })
 
+    $(document).on('click', '#btnCultureDelete', function() {
+        let link = $(this).attr('link')
+        if (confirm(" Corfima a exclusão? ")) {
+            location.href = `${link}`;
+        }
+    })
+
 });
