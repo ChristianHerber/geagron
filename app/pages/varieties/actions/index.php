@@ -1,33 +1,41 @@
 <?php
 
-    /**
-     * ações de inserção
-     * edição e deletação
-     * de dados
-     **/
-
     include('../../../connection/index.php');
 
-    /**
-     * Recupera os dados
-     */
+    $action           = htmlspecialchars($_GET['action']);
+    $varietyId        = htmlspecialchars(!empty($_POST['varietyId']) ? $_POST['varietyId'] : $_GET['varietyId']);
+    $varietyCulture   = htmlspecialchars($_POST['varietyCulture']);
+    $varietyName      = htmlspecialchars($_POST['varietyName']);
+    $varietyCreatedAt = htmlspecialchars($_POST['varietyCreatedAt']);
 
-    $action = $_GET['action']; //Verifica a ação a ser realizada
+    $varietyUpdatedAt = date('Y-m-d H:m:i');
+    $varietyDeletedAt = date('Y-m-d H:m:i');
 
-    $id = $_GET['id']; //id do registro a ser atualizado ou excluído (soft delete)
-
-    $name = $_GET['name']; //exemplo de um registro
+    $action           = mysqli_real_escape_string($conexao, $action);
+    $varietyId        = mysqli_real_escape_string($conexao, $varietyId);
+    $varietyCulture   = mysqli_real_escape_string($conexao, $varietyCulture);
+    $varietyName      = mysqli_real_escape_string($conexao, $varietyName);
+    $varietyCreatedAt = mysqli_real_escape_string($conexao, $varietyCreatedAt);
 
     /**
      * Query de inserção dos dados no BD
      */
     if($action == 1):
         $query = "
-            INSERT INTO table_name
-            values ('{$name}')
+            INSERT INTO varieties (
+                created_at,
+                name,
+                culture_id
+            )
+            values (
+                '{$varietyCreatedAt}',
+                '{$varietyName}',
+                {$varietyCulture}
+            )
         ";
 
-        $feedBack = 'feedBack=insert';
+        $msg = 'msg=Variedade Adicionado com Sucesso';
+        $alertBg = 'alertBg=success';
     endif;
 
     /**
@@ -35,13 +43,15 @@
      */
     if($action == 2):
         $query = "
-            UPDATE table_name
+            UPDATE varieties
             SET
-                name = {$name}
-            WHERE id = {$id}
+                name = '{$varietyName}',
+                culture_id = '{$varietyCulture}'
+            WHERE id = {$varietyId}
         ";
 
-        $feedBack = 'feedBack=update';
+        $msg = 'msg=Variedade Atualizada com Sucesso';
+        $alertBg = 'alertBg=primary';
     endif;
 
     /**
@@ -49,18 +59,19 @@
      */
     if($action == 3):
         $query = "
-            UPDATE table_name
+            UPDATE varieties
             SET
-                deleted_at = {$deleted_at}
-            WHERE id = {$id}
+                deleted_at = '{$varietyDeletedAt}'
+            WHERE id = {$varietyId}
         ";
 
-        $feedBack = 'feedBack=delete';
+        $msg = 'msg=Variedade Atualizada com Sucesso';
+        $alertBg = 'alertBg=primary';
     endif;
 
 
     if($conexao->query($query) === TRUE):
-        header("location: ./wellcome.php?{$feedBack}");
+        header("location: /geagron/app/varieties.php?{$msg}&{$alertBg}");
     endif;
 
     $conexao->close();
