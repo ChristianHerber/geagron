@@ -13,13 +13,30 @@ if($result->num_rows > 0):
 
     echo "
         <tr>
-            <td><a href='editar_registro'>{$row['name']}</a></td>
+            <td>
+                <form action='cultures.php' method='post'>
+                
+                    <input type='hidden' name='cultureCreatedAt' value='{$row['created_at']}'>
+                    <input type='hidden' name='cultureId' value='{$row['id']}'>
+                    <input type='hidden' name='cultureName' value='{$row['name']}'>
+                    <input type='hidden' name='cultureScientificName' value='{$row['scientific_name']}'>
+                    <input type='hidden' name='cultureGroup' value='{$row['group']}'>
+
+                    <button class='btn btn-link'>
+                        {$row['name']}
+                    </button>
+                </form>
+            </td>
             <td>{$row['scientific_name']}</td>
             <td>{$row['group']}</td>
             <td>
-                <a href='escolher_registro' class='btn btn-sm btn-danger' id='btnDelete'>
+                <button 
+                    class='btn btn-sm btn-danger ml-2' 
+                    id='btnCultureDelete'
+                    link='./pages/cultures/actions/index.php?action=3&cultureId={$row['id']}'
+                >
                     <i class='fa fa-trash-alt'></i>
-                </a>
+                </button>
             </td>
         </tr>
     ";

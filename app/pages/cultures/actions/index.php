@@ -59,10 +59,10 @@
         $query = "
             UPDATE cultures
             SET
-                created_at = '{$cultureCreatedAt}', 
+                updated_at = '{$cultureUpdatedAt}', 
                 name = '{$cultureName}',
                 scientific_name = '{$cultureScientificName}',
-                `group` = '{$cultureGroup}',
+                `group` = '{$cultureGroup}'
             WHERE id = {$cultureId}
         ";
 
