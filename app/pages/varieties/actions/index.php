@@ -34,7 +34,7 @@
             )
         ";
 
-        $msg = 'msg=Variedade Adicionado com Sucesso';
+        $msg = 'msg=Variedade Adicionada com Sucesso';
         $alertBg = 'alertBg=success';
     endif;
 
@@ -65,7 +65,7 @@
             WHERE id = {$varietyId}
         ";
 
-        $msg = 'msg=Variedade Atualizada com Sucesso';
+        $msg = 'msg=O Registro foi Excluído!';
         $alertBg = 'alertBg=danger';
     endif;
 
