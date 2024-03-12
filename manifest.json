@@ -1,0 +1,18 @@
+{
+    "name": "Geagoron",
+    "short_name": "Geagron",
+    "lang": "pr-br",
+    "start_url": "localhost/geagron",
+    "theme_color": "#eecb3d",
+    "display": "standalone",
+    "background_color": "#009cde",
+    "orientation": "portrait-primary",
+    "description": "Geagron Nossa Tecnologia, Seu Crescimento",
+    "icons": [
+        {
+            "src": "localhost/geagron/assets/img/logo_geagron_login.png",
+            "type": "image/png",
+            "sizes": "368x98"
+        }
+    ]
+}
