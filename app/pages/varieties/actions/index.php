@@ -21,7 +21,7 @@
     /**
      * Query de inserção dos dados no BD
      */
-    if($action === 1):
+    if($action == 1):
         $query = "
             INSERT INTO table_name
             values ('{$name}')
@@ -33,7 +33,7 @@
     /**
      * Query de atualização dos dados no BD
      */
-    if($action === 2):
+    if($action == 2):
         $query = "
             UPDATE table_name
             SET
@@ -47,7 +47,7 @@
     /**
      * Query de deleção (soft delete) dos dados no BD
      */
-    if($action === 3):
+    if($action == 3):
         $query = "
             UPDATE table_name
             SET
@@ -61,9 +61,6 @@
 
     if($conexao->query($query) === TRUE):
         header("location: ./wellcome.php?{$feedBack}");
-    else:
-        echo "Erro ao realizar a operação";
-            echo mysqli_error($conexao);
     endif;
 
     $conexao->close();

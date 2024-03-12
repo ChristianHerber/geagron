@@ -11,12 +11,14 @@
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label for="varietyName" class="form-label">Nome</label>
-                    <input type="text" id="varietyName" class="form-control">
+                    <input type="text" name="varietyName" id="varietyName" class="form-control">
                 </div>
 
                 <div class="col-md-6">
                     <label for="varietyCultureName" class="form-label">Cultura</label>
-                    <input type="text" id="varietyCultureName" class="form-control">
+                    <select name="varietyCultureName" id="varietyCultureName" class="form-control">
+                        <?php include('./pages/varieties/foreign_loops/cultures.php'); ?>
+                    </select>
                 </div>
             </div>
 
