@@ -10,9 +10,9 @@
     "description": "Geagron Nossa Tecnologia, Seu Crescimento",
     "icons": [
         {
-            "src": "localhost/geagron/app/assets/img/logo_geagron_login.png",
+            "src": "localhost/geagron/app/assets/img/pwa_logo.png",
             "type": "image/png",
-            "sizes": "368x98"
+            "sizes": "512x512"
         }
     ]
 }
