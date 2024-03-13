@@ -138,4 +138,11 @@ $(document).ready(function() {
         }
     })
 
+    $(document).on('click', '#btnClassDelete', function() {
+        let link = $(this).attr('link')
+        if (confirm(" Corfima a exclusão? ")) {
+            location.href = `${link}`;
+        }
+    })
+
 });
