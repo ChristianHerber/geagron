@@ -131,4 +131,11 @@ $(document).ready(function() {
         }
     })
 
+    $(document).on('click', '#btnProblemDelete', function() {
+        let link = $(this).attr('link')
+        if (confirm(" Corfima a exclusão? ")) {
+            location.href = `${link}`;
+        }
+    })
+
 });
