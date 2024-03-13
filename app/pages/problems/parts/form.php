@@ -5,6 +5,11 @@
     <div class="card-header py-3 bg-dark d-flex justify-content-between align-items-center">
         <h6 class="m-0 font-weight-bold text-success">
             <?php echo $cardHeaderText; ?>
+
+            <a class="btn btn-info btn-sm" href="<?php echo $_SERVER['PHP_SELF']; ?>">
+                <i class="fa fa-plus-circle"></i>
+                Novo
+            </a>
         </h6>
     </div>
 

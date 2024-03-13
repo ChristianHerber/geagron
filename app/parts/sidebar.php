@@ -56,6 +56,10 @@
                             <i class="fab fa-pagelines" aria-hidden="true"></i>
                             Variedades
                         </a>
+                        <a class="collapse-item" href="products.php">
+                            <i class="fas fa-skull-crossbones"></i>
+                            Produtos
+                        </a>
                     </div>
                 </div>
             </li>

@@ -6,6 +6,11 @@
         <h6 class="m-0 font-weight-bold text-success">
             <?php echo $cardHeaderText; ?>
         </h6>
+
+        <a class="btn btn-info btn-sm" href="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <i class="fa fa-plus-circle"></i>
+            Novo
+        </a>
     </div>
 
     <div class="card-body">
