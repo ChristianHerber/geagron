@@ -145,4 +145,26 @@ $(document).ready(function() {
         }
     })
 
+    $(document).on('change', '#productToxicClass', function() {
+        if($(this).val() === 'I - Extremamente Tóxico'){
+            $(this).removeClass('bg-success bg-warning bg-primary text-dark')
+            $(this).addClass('bg-danger text-white')
+        }
+
+        if($(this).val() === 'II - Altamente Tóxico'){
+            $(this).removeClass('bg-success bg-danger bg-primary text-white')
+            $(this).addClass('bg-warning text-dark')
+        }
+
+        if($(this).val() === 'III - Medianamente Tóxico'){
+            $(this).removeClass('bg-success bg-danger bg-warning text-dark')
+            $(this).addClass('bg-info text-white')
+        }
+
+        if($(this).val() === 'IV - Pouco Tóxico'){
+            $(this).removeClass('bg-info bg-danger bg-warning text-dark')
+            $(this).addClass('bg-success text-white')
+        }
+    })
+
 });
